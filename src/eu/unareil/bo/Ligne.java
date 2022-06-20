@@ -2,10 +2,12 @@ package eu.unareil.bo;
 
 public class Ligne {
     int quantite;
+    Produit produit;
 
     // Contructor
-    public Ligne(int quantite) {
-        this.quantite = quantite;
+    public Ligne(Produit p, int quantite) {
+        this.setProduit(p);
+        this.setQuantite(quantite);
     }
 
     // Getter
@@ -13,8 +15,25 @@ public class Ligne {
         return quantite;
     }
 
+    public Produit getProduit() {
+        return produit;
+    }
+
     // Setter
     public void setQuantite(int quantite) {
         this.quantite = quantite;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
+    // Methode
+    @Override
+    public String toString() {
+        return "Ligne{" +
+                "quantite=" + quantite +
+                ", produit=" + produit +
+                '}';
     }
 }

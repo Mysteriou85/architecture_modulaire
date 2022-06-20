@@ -7,16 +7,17 @@ public class Glace extends ProduitPerissable {
     int temperatureConservation;
 
     // Constructor
+    public Glace() {
+        super();
+    }
     public Glace(LocalDate dateLimiteConso, long refProd, String marque, String libelle, long qteStock, float prixUnitaire, String parfun, int temperatureConservation) {
         super(refProd, marque, libelle, qteStock, prixUnitaire, dateLimiteConso);
         this.parfun = parfun;
         this.temperatureConservation = temperatureConservation;
     }
 
-    public Glace(LocalDate dateLimiteConso, String marque, String libelle, long qteStock, float prixUnitaire, String parfun, int temperatureConservation) {
-        super(marque, libelle, qteStock, prixUnitaire, dateLimiteConso);
-        this.parfun = parfun;
-        this.temperatureConservation = temperatureConservation;
+    public Glace(LocalDate dateLimiteConso, String marque, String libelle, int temperatureConservation, String parfun, long qteStock, float prixUnitaire) {
+        this(dateLimiteConso, 0 , marque, libelle, qteStock, prixUnitaire, parfun, temperatureConservation);
     }
 
     // Getter

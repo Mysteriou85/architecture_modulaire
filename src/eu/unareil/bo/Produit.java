@@ -8,6 +8,10 @@ public class Produit {
     long qteStock;
 
     // Constructor
+    public Produit() {
+
+    }
+
     public Produit(long refProd, String marque, String libelle, long qteStock, float prixUnitaire) {
         this.setRefProd(refProd);
         this.setLibelle(libelle);
@@ -17,10 +21,7 @@ public class Produit {
     }
 
     public Produit(String marque, String libelle, long qteStock, float prixUnitaire) {
-        this.setLibelle(libelle);
-        this.setMarque(marque);
-        this.setPrixUnitaire(prixUnitaire);
-        this.setQteStock(qteStock);
+        this(0, marque, libelle, qteStock, prixUnitaire);
     }
 
     // Getter

@@ -5,6 +5,9 @@ public class Stylo extends Produit {
     String typeMine;
 
     // Constructor
+    public Stylo() {
+        super();
+    }
     public Stylo(long refProd, String marque, String libelle, long qteStock, float prixUnitaire, String couleur, String typeMine) {
         super(refProd, marque, libelle, qteStock, prixUnitaire);
         this.setCouleur(couleur);
@@ -12,9 +15,7 @@ public class Stylo extends Produit {
     }
 
     public Stylo(String marque, String libelle, long qteStock, float prixUnitaire, String couleur, String typeMine) {
-        super(marque, libelle, qteStock, prixUnitaire);
-        this.setCouleur(couleur);
-        this.setTypeMine(typeMine);
+        this(0, marque, libelle, qteStock, prixUnitaire, couleur, typeMine);
     }
 
     // Getter
