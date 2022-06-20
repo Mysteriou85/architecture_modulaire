@@ -69,11 +69,15 @@ public class Produit {
     // Methode
     @Override
     public String toString() {
-        return "Produit{" +
-                "libelle='" + libelle + '\'' +
-                ", marque='" + marque + '\'' +
-                ", prixUnitaire=" + prixUnitaire +
-                ", qteStock=" + qteStock +
-                '}';
+        final StringBuffer sb = new StringBuffer();
+        sb.append(this.getClass().getSimpleName()).append(" [");
+        sb.append("libelle=").append(libelle);
+        if (refProd != 0) {
+            sb.append(", refProd=").append(refProd).append(", ");
+        }
+        sb.append(", marque=").append(marque);
+        sb.append(", prixUnitaire=").append(prixUnitaire).append(" euro").append((prixUnitaire > 1) ? "s" : "");
+        sb.append(", qteStock=").append(qteStock);
+        return sb.toString();
     }
 }

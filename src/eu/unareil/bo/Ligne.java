@@ -1,5 +1,7 @@
 package eu.unareil.bo;
 
+import java.text.DecimalFormat;
+
 public class Ligne {
     int quantite;
     Produit produit;
@@ -19,6 +21,10 @@ public class Ligne {
         return produit;
     }
 
+    public double getPrix() {
+        return this.getQuantite() * produit.getPrixUnitaire();
+    }
+
     // Setter
     public void setQuantite(int quantite) {
         this.quantite = quantite;
@@ -29,12 +35,15 @@ public class Ligne {
     }
 
     // Methode
-
     @Override
     public String toString() {
-        return super.toString() + "Ligne{" +
-                "quantite=" + quantite +
-                ", produit=" + produit +
-                '}';
+        final StringBuffer sb = new StringBuffer();
+        sb.append(this.getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("produit=").append(produit);
+        sb.append(", qte=").append(quantite);
+        sb.append(", prix=").append(this.getPrix()).append(" euro").append((this.getPrix() > 1) ? "s" : "");
+        sb.append(']');
+        return sb.toString();
     }
 }

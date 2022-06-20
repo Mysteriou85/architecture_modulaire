@@ -35,8 +35,12 @@ public class Achat {
     }
 
     // Methode
-    public void calculMontant() {
-
+    public double calculMontant() {
+        montant = 0;
+        for (Ligne ligne : lignes) {
+            montant += ligne.getQuantite() * ligne.getProduit().getPrixUnitaire();
+        }
+        return montant;
     }
 
     public void supprimeLigne(int index) {
@@ -53,11 +57,18 @@ public class Achat {
         }
     }
 
+    // Methode
     @Override
     public String toString() {
-        return super.toString() + "Achat{" +
-                "montant=" + montant +
-                ", lignes=" + lignes +
-                '}';
+        final StringBuffer sb = new StringBuffer();
+        sb.append("Achat : ").append("\n");
+        for (Ligne ligne : lignes) {
+            sb.append("\n");
+            sb.append("ligne ").append((lignes.indexOf(ligne)) + 1).append(" : ");
+            sb.append(ligne.toString());
+        }
+        sb.append("\n");
+        sb.append("Total de l'achat : ").append(calculMontant()).append(" euro").append((montant > 1) ? "s" : "");
+        return sb.toString();
     }
 }

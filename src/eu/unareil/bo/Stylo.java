@@ -37,12 +37,12 @@ public class Stylo extends Produit {
     }
 
     // Methode
-
     @Override
     public String toString() {
-        return super.toString() + "Stylo{" +
-                "couleur='" + couleur + '\'' +
-                ", typeMine='" + typeMine + '\'' +
-                '}';
+        final StringBuffer sb = new StringBuffer("Stylo [");
+        sb.append("couleur=").append(couleur);
+        sb.append(", typeMine=").append(typeMine);
+        sb.append(']');
+        return sb.toString();
     }
 }

@@ -28,13 +28,4 @@ public class Auteur {
         this.nom = nom;
     }
 
-    // Methode
-
-    @Override
-    public String toString() {
-        return super.toString() + "Auteur{" +
-                "prenom='" + prenom + '\'' +
-                ", nom='" + nom + '\'' +
-                '}';
-    }
 }

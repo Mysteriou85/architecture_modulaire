@@ -34,8 +34,10 @@ public class Pain extends ProduitPerissable{
 
     @Override
     public String toString() {
-        return super.toString() + "Pain{" +
-                "poids=" + poids +
-                '}';
+        final StringBuffer sb = new StringBuffer();
+        sb.append(super.toString()).append(", ");
+        sb.append("poids=").append(poids).append("g");
+        sb.append(']');
+        return sb.toString();
     }
 }
