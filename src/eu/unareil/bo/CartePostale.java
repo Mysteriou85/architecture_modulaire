@@ -13,8 +13,8 @@ public class CartePostale extends Produit {
     }
     public CartePostale(long refProd, String marque, String libelle, long qteStock, float prixUnitaire, List<Auteur> lesAuteurs, TypeCartePostale type) {
         super(refProd, marque, libelle, qteStock, prixUnitaire);
-        this.type = type;
-        this.lesAuteurs = lesAuteurs;
+        this.setType(type);
+        this.setLesAuteurs(lesAuteurs);
     }
 
     public CartePostale(String marque, String libelle, long qteStock, float prixUnitaire, List<Auteur> lesAuteurs, TypeCartePostale type) {
@@ -39,5 +39,15 @@ public class CartePostale extends Produit {
 
     public void setLesAuteurs(List<Auteur> lesAuteurs) {
         this.lesAuteurs = lesAuteurs;
+    }
+
+    // Methode
+
+    @Override
+    public String toString() {
+        return super.toString() + "CartePostale{" +
+                "type=" + type +
+                ", lesAuteurs=" + lesAuteurs +
+                '}';
     }
 }

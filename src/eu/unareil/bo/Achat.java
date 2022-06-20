@@ -53,4 +53,11 @@ public class Achat {
         }
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "Achat{" +
+                "montant=" + montant +
+                ", lignes=" + lignes +
+                '}';
+    }
 }

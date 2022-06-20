@@ -29,9 +29,10 @@ public class Ligne {
     }
 
     // Methode
+
     @Override
     public String toString() {
-        return "Ligne{" +
+        return super.toString() + "Ligne{" +
                 "quantite=" + quantite +
                 ", produit=" + produit +
                 '}';

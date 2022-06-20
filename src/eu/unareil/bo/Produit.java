@@ -67,4 +67,13 @@ public class Produit {
     }
 
     // Methode
+    @Override
+    public String toString() {
+        return "Produit{" +
+                "libelle='" + libelle + '\'' +
+                ", marque='" + marque + '\'' +
+                ", prixUnitaire=" + prixUnitaire +
+                ", qteStock=" + qteStock +
+                '}';
+    }
 }

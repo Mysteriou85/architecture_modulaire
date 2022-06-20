@@ -28,4 +28,12 @@ public class ProduitPerissable extends Produit {
     public void setDateLimiteConso(LocalDate dateLimiteConso) {
         this.dateLimiteConso = dateLimiteConso;
     }
+
+    // Methode
+    @Override
+    public String toString() {
+        return super.toString() + "ProduitPerissable{" +
+                "dateLimiteConso=" + dateLimiteConso +
+                '}';
+    }
 }
