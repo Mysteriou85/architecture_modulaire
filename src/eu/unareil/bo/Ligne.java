@@ -42,7 +42,7 @@ public class Ligne {
         sb.append(" [");
         sb.append("produit=").append(produit);
         sb.append(", qte=").append(quantite);
-        sb.append(", prix=").append(this.getPrix()).append(" euro").append((this.getPrix() > 1) ? "s" : "");
+        sb.append(", prix=").append(String.format("%.2f", this.getPrix())).append(" euro").append((this.getPrix() > 1) ? "s" : "");
         sb.append(']');
         return sb.toString();
     }

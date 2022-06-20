@@ -68,7 +68,8 @@ public class Achat {
             sb.append(ligne.toString());
         }
         sb.append("\n");
-        sb.append("Total de l'achat : ").append(calculMontant()).append(" euro").append((montant > 1) ? "s" : "");
+        sb.append("Total de l'achat : ").append(String.format("%.2f", calculMontant())).append(" euro").append((montant > 1) ? "s" : "");
         return sb.toString();
     }
+
 }

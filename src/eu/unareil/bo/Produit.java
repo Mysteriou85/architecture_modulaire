@@ -76,7 +76,7 @@ public class Produit {
             sb.append(", refProd=").append(refProd).append(", ");
         }
         sb.append(", marque=").append(marque);
-        sb.append(", prixUnitaire=").append(prixUnitaire).append(" euro").append((prixUnitaire > 1) ? "s" : "");
+        sb.append(", prixUnitaire=").append(String.format("%.2f", prixUnitaire)).append(" euro").append((prixUnitaire > 1) ? "s" : "");
         sb.append(", qteStock=").append(qteStock);
         return sb.toString();
     }
