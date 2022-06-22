@@ -1,4 +1,4 @@
-package eu.unareil.dal.jdbc;
+package eu.unareil.dal.jdbc.allJdbc;
 
 import eu.unareil.bo.produit.cartePostale.Auteur;
 import eu.unareil.dal.DALException;

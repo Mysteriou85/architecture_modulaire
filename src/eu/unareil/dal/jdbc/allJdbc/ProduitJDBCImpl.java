@@ -1,4 +1,4 @@
-package eu.unareil.dal.jdbc;
+package eu.unareil.dal.jdbc.allJdbc;
 
 import eu.unareil.bo.produit.Produit;
 import eu.unareil.bo.produit.Stylo;
@@ -8,6 +8,7 @@ import eu.unareil.bo.produit.produitPerissable.Pain;
 import eu.unareil.bo.produit.produitPerissable.ProduitPerissable;
 import eu.unareil.dal.DALException;
 import eu.unareil.dal.DAO;
+import eu.unareil.dal.jdbc.JdbcTools;
 
 import java.sql.*;
 import java.util.List;
@@ -111,9 +112,8 @@ public class ProduitJDBCImpl implements DAO<Produit> {
     @Override
     public void delete(Produit data) throws DALException {
         PreparedStatement pstmt = null;
-        Connection cnx = null;
         long id = data.getRefProd();
-        cnx = JdbcTools.getConnection();
+        Connection cnx = JdbcTools.getConnection();
         try {
             pstmt = cnx.prepareStatement(SQL_DELETE);
             pstmt.setLong(1, id);
@@ -144,7 +144,46 @@ public class ProduitJDBCImpl implements DAO<Produit> {
     // ----- SELECT BY ID -----
     @Override
     public Produit selectById(long id) throws DALException {
-        return null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null ;
+        Produit produit = null;
+        Connection cnx = JdbcTools.getConnection();
+        try {
+            pstmt = cnx.prepareStatement(SQL_SELECT_BY_ID);
+            pstmt.setLong(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                produit = new Produit(
+//                    rs.getString(1),
+//                    rs.getString(2),
+//                    rs.getFloat(3),
+//                    rs.getLong(4),
+//                    rs.getString(5),
+//                    rs.getDate(6),
+//                    rs.getFloat(7),
+//                    rs.getString(8),
+//                    rs.getInt(9),
+//                    rs.getString(10),
+//                    rs.getString(11),
+//                    rs.getString(12)
+                );
+            }
+        } catch (SQLException e) {
+            throw new DALException("erreur du select by id - id=" + id, e.getCause());
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                if(cnx!=null) {
+                    cnx.close();
+                }
+            } catch (SQLException e) {
+                throw new DALException("erreur du select by id au niveau du close - id=" + id, e.getCause());
+            }
+        }
+        return produit;
     }
 
     // ----- SELECT ALL -----
