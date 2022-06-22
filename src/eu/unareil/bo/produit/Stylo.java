@@ -45,4 +45,13 @@ public class Stylo extends Produit {
         sb.append(']');
         return sb.toString();
     }
+
+    public void setMultipleTruc(String marque, String libelle, long qteStock, float prixUnitaire, String couleur, String typeMine) {
+        this.setMarque(marque);
+        this.setLibelle(libelle);
+        this.setQteStock(qteStock);
+        this.setPrixUnitaire(prixUnitaire);
+        this.setCouleur(couleur);
+        this.setTypeMine(typeMine);
+    }
 }
