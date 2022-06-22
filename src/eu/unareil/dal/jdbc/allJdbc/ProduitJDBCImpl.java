@@ -2,7 +2,9 @@ package eu.unareil.dal.jdbc.allJdbc;
 
 import eu.unareil.bo.produit.Produit;
 import eu.unareil.bo.produit.Stylo;
+import eu.unareil.bo.produit.cartePostale.Auteur;
 import eu.unareil.bo.produit.cartePostale.CartePostale;
+import eu.unareil.bo.produit.cartePostale.TypeCartePostale;
 import eu.unareil.bo.produit.produitPerissable.Glace;
 import eu.unareil.bo.produit.produitPerissable.Pain;
 import eu.unareil.bo.produit.produitPerissable.ProduitPerissable;
@@ -262,12 +264,21 @@ public class ProduitJDBCImpl implements DAO<Produit> {
                     );
                 }
                 // Si le produit selectionné est un CartePostale
-//                if (rs.getString(5).equals("CartePostale")) {
+                // NE FONCTIONNE PAS A REVOIR
+//                if (rs.getString(6).equals("CartePostale")) {
+//                    AuteurJBDCImpl auteurJBDC = new AuteurJBDCImpl();
+//                    List<Auteur> listAuteur = new ArrayList<>();
+//
+//                    listAuteur.add(auteurJBDC.selectById(rs.getLong(1)));
+//
 //                    produit = new CartePostale(
-//                            rs.getString(2),    // marque
-//                            rs.getString(1),    // libelle
-//                            rs.getLong(4),      // qteStock
-//                            rs.getFloat(3)      // prixUnitaire
+//                            rs.getLong(1),      // id
+//                            rs.getString(3),    // marque
+//                            rs.getString(2),    // libelle
+//                            rs.getLong(5),      // qteStock
+//                            rs.getFloat(4),     // prixUnitaire
+//                            listAuteur,
+//                            TypeCartePostale.valueOf(rs.getString(13))
 //                    );
 //                }
             }
@@ -336,6 +347,24 @@ public class ProduitJDBCImpl implements DAO<Produit> {
                             rs.getInt(10)       // temperatureConservation
                     );
                 }
+                // Si le produit selectionné est un CartePostale
+                // NE FONCTIONNE PAS A REVOIR
+//                if (rs.getString(6).equals("CartePostale")) {
+//                    AuteurJBDCImpl auteurJBDC = new AuteurJBDCImpl();
+//                    List<Auteur> listAuteur = new ArrayList<>();
+//
+//                    listAuteur.add(auteurJBDC.selectById(rs.getLong(1)));
+//
+//                    produit = new CartePostale(
+//                            rs.getLong(1),      // id
+//                            rs.getString(3),    // marque
+//                            rs.getString(2),    // libelle
+//                            rs.getLong(5),      // qteStock
+//                            rs.getFloat(4),      // prixUnitaire
+//                            listAuteur,
+//                            TypeCartePostale.valueOf(rs.getString(13))
+//                    );
+//                }
                 lesProduits.add(produit);
             }
         } catch (SQLException e) {
