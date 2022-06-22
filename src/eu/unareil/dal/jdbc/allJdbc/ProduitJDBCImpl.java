@@ -11,17 +11,19 @@ import eu.unareil.dal.DAO;
 import eu.unareil.dal.jdbc.JdbcTools;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 public class ProduitJDBCImpl implements DAO<Produit> {
 
     private static final String SQL_INSERT="insert into produit "
-            + "(libelle, marque, prixUnitaire, qteStock, type, dateLimiteConso, poids, parfun, temperatureConservation, couleur, typeMine, typeCartePostale)"
+            + "(libelle, marque, prixUnitaire, qteStock, type, dateLimiteConso, poids, parfum, temperatureConservation, couleur, typeMine, typeCartePostale)"
             + " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE="";
     private static final String SQL_DELETE="delete from produit where refProd = ?";
     private static final String SQL_SELECT_ALL="";
-    private static final String SQL_SELECT_BY_ID="";
+    private static final String SQL_SELECT_BY_ID="select * from produit where refProd = ?";
 
     // ----- INSERT PRODUIT -----
     @Override
@@ -153,20 +155,51 @@ public class ProduitJDBCImpl implements DAO<Produit> {
             pstmt.setLong(1, id);
             rs = pstmt.executeQuery();
             if (rs.next()) {
-                produit = new Produit(
-//                    rs.getString(1),
-//                    rs.getString(2),
-//                    rs.getFloat(3),
-//                    rs.getLong(4),
-//                    rs.getString(5),
-//                    rs.getDate(6),
-//                    rs.getFloat(7),
-//                    rs.getString(8),
-//                    rs.getInt(9),
-//                    rs.getString(10),
-//                    rs.getString(11),
-//                    rs.getString(12)
-                );
+                // Si le produit selectionné est un stylo
+                if (rs.getString(6).equals("Stylo")) {
+                    produit = new Stylo(
+                            rs.getLong(1),      // id
+                            rs.getString(2),    // libelle
+                            rs.getString(3),    // marque
+                            rs.getLong(5),      // qteStock
+                            rs.getFloat(4),     // prixUnitaire
+                            rs.getString(11),   // couleur
+                            rs.getString(12)    // typeMine
+                    );
+                }
+                // Si le produit selectionné est un pain
+                if (rs.getString(6).equals("Pain")) {
+                    produit = new Pain(
+                            rs.getLong(1),      // id
+                            rs.getString(3),    // marque
+                            rs.getString(2),    // libelle
+                            rs.getLong(5),      // qteStock
+                            rs.getFloat(4),      // prixUnitaire
+                            rs.getFloat(8)     // poids
+                    );
+                }
+                // Si le produit selectionné est une glace
+                if (rs.getString(6).equals("Glace")) {
+                    produit = new Glace(
+                            rs.getLong(1),      // id
+                            LocalDate.ofInstant((rs.getDate(7)).toInstant(), ZoneId.systemDefault()),      // dateLimitConso
+                            rs.getString(3),    // marque
+                            rs.getString(2),    // libelle
+                            rs.getLong(5),      // qteStock
+                            rs.getFloat(4),      // prixUnitaire
+                            rs.getString(9),    // parfum
+                            rs.getInt(10)      // temperatureConservation
+                    );
+                }
+                // Si le produit selectionné est un CartePostale
+//                if (rs.getString(5).equals("CartePostale")) {
+//                    produit = new CartePostale(
+//                            rs.getString(2),    // marque
+//                            rs.getString(1),    // libelle
+//                            rs.getLong(4),      // qteStock
+//                            rs.getFloat(3)      // prixUnitaire
+//                    );
+//                }
             }
         } catch (SQLException e) {
             throw new DALException("erreur du select by id - id=" + id, e.getCause());

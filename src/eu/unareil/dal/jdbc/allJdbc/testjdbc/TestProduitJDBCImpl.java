@@ -23,12 +23,22 @@ public class TestProduitJDBCImpl {
 
         Produit newStylo = new Stylo(libelle, marque, qteStock, prixUnitaire, couleur, typeMine);
 
-        try {
-            produitJDBC.insert(newStylo);
-        } catch (DALException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            produitJDBC.insert(newStylo);
+//        } catch (DALException e) {
+//            throw new RuntimeException(e);
+//        }
 
+//        try {
+//            System.out.println(produitJDBC.selectById(13));
+//        } catch (DALException e) {
+//            throw new RuntimeException(e);
+//        }
 
+//        try {
+//            produitJDBC.delete(produitJDBC.selectById(13));
+//        } catch (DALException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 }
