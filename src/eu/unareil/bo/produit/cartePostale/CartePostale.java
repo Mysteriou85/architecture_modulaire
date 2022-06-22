@@ -1,4 +1,6 @@
-package eu.unareil.bo;
+package eu.unareil.bo.produit.cartePostale;
+
+import eu.unareil.bo.produit.Produit;
 
 import java.util.ArrayList;
 import java.util.List;

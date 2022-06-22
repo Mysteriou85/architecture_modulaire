@@ -1,4 +1,4 @@
-package eu.unareil.bo;
+package eu.unareil.bo.produit.produitPerissable;
 
 import java.time.LocalDate;
 

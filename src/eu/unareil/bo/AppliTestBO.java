@@ -3,9 +3,15 @@
  */
 package eu.unareil.bo;
 
+import eu.unareil.bo.produit.*;
+import eu.unareil.bo.produit.cartePostale.Auteur;
+import eu.unareil.bo.produit.cartePostale.CartePostale;
+import eu.unareil.bo.produit.cartePostale.TypeCartePostale;
+import eu.unareil.bo.produit.produitPerissable.Glace;
+import eu.unareil.bo.produit.produitPerissable.Pain;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -37,7 +43,7 @@ public class AppliTestBO {
 			List<Auteur> lesAuteursDeLaCarte = new ArrayList<>();
 			lesAuteursDeLaCarte.add(new Auteur("André","Dussoliuer"));
 			lesAuteursDeLaCarte.add(new Auteur("Béatrice","Barbante"));
-			CartePostale uneCarte = new CartePostale("Carte Sud Bretagne","La mine d'Or", 10000, 0.80f,lesAuteursDeLaCarte,TypeCartePostale.Paysage);
+			CartePostale uneCarte = new CartePostale("Carte Sud Bretagne","La mine d'Or", 10000, 0.80f,lesAuteursDeLaCarte, TypeCartePostale.Paysage);
 			System.out.println("\nREM : Affichage d'un produit carte postale");
 			System.out.println(uneCarte.toString());
 			System.out.println("---------------------------------------------------------------");

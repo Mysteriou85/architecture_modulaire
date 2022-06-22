@@ -1,4 +1,4 @@
-package eu.unareil.bo;
+package eu.unareil.bo.produit;
 
 public class Produit {
     long refProd;

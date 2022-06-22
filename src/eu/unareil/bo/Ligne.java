@@ -1,6 +1,6 @@
 package eu.unareil.bo;
 
-import java.text.DecimalFormat;
+import eu.unareil.bo.produit.Produit;
 
 public class Ligne {
     int quantite;

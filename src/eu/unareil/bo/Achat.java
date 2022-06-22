@@ -1,5 +1,7 @@
 package eu.unareil.bo;
 
+import eu.unareil.bo.produit.Produit;
+
 import java.util.ArrayList;
 import java.util.List;
 
