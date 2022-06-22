@@ -264,23 +264,22 @@ public class ProduitJDBCImpl implements DAO<Produit> {
                     );
                 }
                 // Si le produit selectionné est un CartePostale
-                // NE FONCTIONNE PAS A REVOIR
-//                if (rs.getString(6).equals("CartePostale")) {
-//                    AuteurJBDCImpl auteurJBDC = new AuteurJBDCImpl();
-//                    List<Auteur> listAuteur = new ArrayList<>();
-//
-//                    listAuteur.add(auteurJBDC.selectById(rs.getLong(1)));
-//
-//                    produit = new CartePostale(
-//                            rs.getLong(1),      // id
-//                            rs.getString(3),    // marque
-//                            rs.getString(2),    // libelle
-//                            rs.getLong(5),      // qteStock
-//                            rs.getFloat(4),     // prixUnitaire
-//                            listAuteur,
-//                            TypeCartePostale.valueOf(rs.getString(13))
-//                    );
-//                }
+                if (rs.getString(6).equals("CartePostale")) {
+                    AuteurJBDCImpl auteurJBDC = new AuteurJBDCImpl();
+                    List<Auteur> listAuteur = new ArrayList<>();
+
+                    listAuteur.add(auteurJBDC.selectById(rs.getLong(1)));
+
+                    produit = new CartePostale(
+                            rs.getLong(1),      // id
+                            rs.getString(3),    // marque
+                            rs.getString(2),    // libelle
+                            rs.getLong(5),      // qteStock
+                            rs.getFloat(4),     // prixUnitaire
+                            listAuteur,
+                            TypeCartePostale.valueOf(rs.getString(13))
+                    );
+                }
             }
         } catch (SQLException e) {
             throw new DALException("erreur du select by id - id=" + id, e.getCause());
@@ -348,23 +347,22 @@ public class ProduitJDBCImpl implements DAO<Produit> {
                     );
                 }
                 // Si le produit selectionné est un CartePostale
-                // NE FONCTIONNE PAS A REVOIR
-//                if (rs.getString(6).equals("CartePostale")) {
-//                    AuteurJBDCImpl auteurJBDC = new AuteurJBDCImpl();
-//                    List<Auteur> listAuteur = new ArrayList<>();
-//
-//                    listAuteur.add(auteurJBDC.selectById(rs.getLong(1)));
-//
-//                    produit = new CartePostale(
-//                            rs.getLong(1),      // id
-//                            rs.getString(3),    // marque
-//                            rs.getString(2),    // libelle
-//                            rs.getLong(5),      // qteStock
-//                            rs.getFloat(4),      // prixUnitaire
-//                            listAuteur,
-//                            TypeCartePostale.valueOf(rs.getString(13))
-//                    );
-//                }
+                if (rs.getString(6).equals("CartePostale")) {
+                    AuteurJBDCImpl auteurJBDC = new AuteurJBDCImpl();
+                    List<Auteur> listAuteur = new ArrayList<>();
+
+                    listAuteur.add(auteurJBDC.selectById(rs.getLong(1)));
+
+                    produit = new CartePostale(
+                            rs.getLong(1),      // id
+                            rs.getString(3),    // marque
+                            rs.getString(2),    // libelle
+                            rs.getLong(5),      // qteStock
+                            rs.getFloat(4),      // prixUnitaire
+                            listAuteur,
+                            TypeCartePostale.valueOf(rs.getString(13))
+                    );
+                }
                 lesProduits.add(produit);
             }
         } catch (SQLException e) {

@@ -1,7 +1,7 @@
 package eu.unareil.bo.produit.cartePostale;
 
 public enum TypeCartePostale {
-    Paysage("Paysage");
+    Paysage("Paysage"), Portrait("Portrait");
 
     private String libelle;
 

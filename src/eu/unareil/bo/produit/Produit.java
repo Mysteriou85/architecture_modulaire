@@ -73,7 +73,7 @@ public class Produit {
         sb.append(this.getClass().getSimpleName()).append(" [");
         sb.append("libelle=").append(libelle);
         if (refProd != 0) {
-            sb.append(", refProd=").append(refProd).append(", ");
+            sb.append(", refProd=").append(refProd);
         }
         sb.append(", marque=").append(marque);
         sb.append(", prixUnitaire=").append(String.format("%.2f", prixUnitaire)).append(" euro").append((prixUnitaire > 1) ? "s" : "");
