@@ -43,7 +43,6 @@ public class Auteur {
     // Methode
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        // sb.append(super.toString()).append(", ");
         sb.append("Auteur [");
         sb.append("prenom=").append(prenom);
         sb.append(", nom=").append(nom);

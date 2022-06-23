@@ -13,8 +13,6 @@ import eu.unareil.dal.DAO;
 import eu.unareil.dal.jdbc.JdbcTools;
 
 import java.sql.*;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -246,8 +244,8 @@ public class ProduitJDBCImpl implements DAO<Produit> {
                             rs.getString(3),    // marque
                             rs.getString(2),    // libelle
                             rs.getLong(5),      // qteStock
-                            rs.getFloat(4),      // prixUnitaire
-                            rs.getFloat(8)     // poids
+                            rs.getFloat(4),     // prixUnitaire
+                            rs.getFloat(8)      // poids
                     );
                 }
                 // Si le produit selectionné est une glace
@@ -258,9 +256,9 @@ public class ProduitJDBCImpl implements DAO<Produit> {
                             rs.getString(3),    // marque
                             rs.getString(2),    // libelle
                             rs.getLong(5),      // qteStock
-                            rs.getFloat(4),      // prixUnitaire
+                            rs.getFloat(4),     // prixUnitaire
                             rs.getString(9),    // parfum
-                            rs.getInt(10)      // temperatureConservation
+                            rs.getInt(10)       // temperatureConservation
                     );
                 }
                 // Si le produit selectionné est un CartePostale
@@ -358,7 +356,7 @@ public class ProduitJDBCImpl implements DAO<Produit> {
                             rs.getString(3),    // marque
                             rs.getString(2),    // libelle
                             rs.getLong(5),      // qteStock
-                            rs.getFloat(4),      // prixUnitaire
+                            rs.getFloat(4),     // prixUnitaire
                             listAuteur,
                             TypeCartePostale.valueOf(rs.getString(13))
                     );
